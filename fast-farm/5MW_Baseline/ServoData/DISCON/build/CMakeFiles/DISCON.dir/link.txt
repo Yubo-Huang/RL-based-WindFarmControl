@@ -1,0 +1,1 @@
+/usr/bin/gfortran -fPIC  -m64 -ffree-line-length-none -fdefault-real-8 -C -DIMPLICIT_DLLEXPORT -O3 -DNDEBUG -O3  -shared -Wl,-soname,DISCON.dll -o DISCON.dll CMakeFiles/DISCON.dir/DISCON.F90.o 
