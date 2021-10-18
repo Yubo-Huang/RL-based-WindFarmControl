@@ -35,7 +35,7 @@ The method to run the code:
 
 ```
 mkdir policy learning_curves
-python3 train.py --save-dir "./policy/" --plots-dir "./learning_curves"
+python3 train.py --save-dir "./policy/" --plots-dir "./learning_curves/"
 ```
 
 Please use the following command to see other input parameters of the `train.py` file.
@@ -47,5 +47,5 @@ python3 train.py --help
 ## Plot
 
 `plot.py` shows the method how to plot figures in the paper according to the outputs of `train.py` file.
-`figure` directory includes the figures in the paper
+`figures` directory includes the figures in the paper
 
