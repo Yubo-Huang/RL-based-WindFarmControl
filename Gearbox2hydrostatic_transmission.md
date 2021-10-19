@@ -4,9 +4,7 @@
 
 This note is used to record the modification process replacing the gearbox drivetrain with the hydraulic drivetrain in `OpenFAST`.
 
-Author: Yubo Huang
-
-Data: Jun. 28, 2021
+OpenFAST uses the gear-box based drivetrain for energy conversion, and in this paper, we replace the gear-box based drivetrain with the hydrostatic drivetrain by modifying the ServoDyn module in OpenFAST. First, the drivetrain rotational-flexibility DOF is closed in the ElastoDyn input file (.dat) and the GBRatio is set to 1. Then, we regard the generator in GWT as the hydraulic pump in HWT and modify its inertial in the FAST input file (.fst). Finally, the transmission dynamics of hydraulic system in HWT is modelled as a function in the ServoDyn module and it will be called before the state update of servo system. Finally, we embed the RL-based control policy in the UserVSCont_KP.f90 file.
 
 ## Pre-modification
 

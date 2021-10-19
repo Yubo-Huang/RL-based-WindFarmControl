@@ -87,20 +87,20 @@ def train(arglist):
         final_ep_ag_rewards = [[] for i in range(num_agent)]        # agent rewards for training curve 
         saver = tf.train.Saver()
         train_step = 0
-        write_file1 = "/home/yubo/MAPO/fast-farm/Three_Turbines/WT1/spd_trq.dat"
-        write_file2 = "/home/yubo/MAPO/fast-farm/Three_Turbines/WT2/spd_trq.dat"
-        write_file3 = "/home/yubo/MAPO/fast-farm/Three_Turbines/WT3/spd_trq.dat"
+        write_file1 = "./fast-farm/Three_Turbines/WT1/spd_trq.dat"
+        write_file2 = "./fast-farm/Three_Turbines/WT2/spd_trq.dat"
+        write_file3 = "./fast-farm/Three_Turbines/WT3/spd_trq.dat"
         write_file = [write_file1, write_file2, write_file3]
-        read_file1 = "/home/yubo/MAPO/fast-farm/Three_Turbines/TSinflow.T1.out"
-        read_file2 = "/home/yubo/MAPO/fast-farm/Three_Turbines/TSinflow.T2.out"
-        read_file3 = "/home/yubo/MAPO/fast-farm/Three_Turbines/TSinflow.T3.out"
+        read_file1 = "./fast-farm/Three_Turbines/TSinflow.T1.out"
+        read_file2 = "./fast-farm/Three_Turbines/TSinflow.T2.out"
+        read_file3 = "./fast-farm/Three_Turbines/TSinflow.T3.out"
         # read_file1 = "/home/yubo/GBopenfast/openfast/reg_tests/r-test/glue-codes/fast-farm/TSinflow/TSinflow.T1.out"
         # read_file2 = "/home/yubo/GBopenfast/openfast/reg_tests/r-test/glue-codes/fast-farm/TSinflow/TSinflow.T2.out"
         # read_file3 = "/home/yubo/GBopenfast/openfast/reg_tests/r-test/glue-codes/fast-farm/TSinflow/TSinflow.T3.out"
         read_file = [read_file1, read_file2, read_file3]
         NumCol = 28
         ValidCol = [6, 26, 27, 25, 24]
-        command = "/home/yubo/MAPO/FAST.Farm /home/yubo/MAPO/fast-farm/Three_Turbines/TSinflow.fstf"
+        command = "./FAST.Farm ./fast-farm/Three_Turbines/TSinflow.fstf"
         t_start = time.time()
 
         print('Starting iterations...')

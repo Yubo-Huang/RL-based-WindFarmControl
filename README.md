@@ -1,6 +1,6 @@
 # MARL-based policy optimization of wind farm control task
 
-This repo is the code implementation of the paper titled "Reinforcement Learning-based Control of Wind Farm Composed of Hydrostatic Wind Turbines". In this paper, a novel MARL method is proposed to control the hydrostatic wind turbines (HWT) in a wind farm to maximize its power generation. The structure of this repo is:
+This repo is the code implementation of the paper titled "Reinforcement Learning-based Control of Wind Farm Composed of Hydrostatic Wind Turbines". In this paper, a novel MARL method name Multi-Agent Policy Optimization (MAPO) is proposed to control the hydrostatic wind turbines (HWT) in a wind farm to maximize its power generation. The structure of this repo is:
 
 ## Dependency
 
@@ -31,7 +31,16 @@ The simulation can be swiched by changing Line 90-103 in `./train.py`
 
 `train.py` file contains the method to train MAPO.
 
-The method to run the code:
+### The hyper-parameters of MAPO
+
+| Name | Value | Name | Value |
+| ---- | ---- | ---- | ---- |
+| Learning rate | 1e-4 | Clip range $\epsilon$ | 0.2 |
+| Discounter coefficient | 0.99 | $\lambda$ return | 0.95 |
+| Activation function | tanh | Layer units | $[64, 64]$ |
+| Episodes | 200 | Batch size | 1024  |
+
+### The method to run the code:
 
 ```
 mkdir policy learning_curves
