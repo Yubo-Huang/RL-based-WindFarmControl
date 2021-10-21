@@ -6,6 +6,33 @@ This note is used to record the modification process replacing the gearbox drive
 
 OpenFAST uses the gear-box based drivetrain for energy conversion, and in this paper, we replace the gear-box based drivetrain with the hydrostatic drivetrain by modifying the ServoDyn module in OpenFAST. First, the drivetrain rotational-flexibility DOF is closed in the ElastoDyn input file (.dat) and the GBRatio is set to 1. Then, we regard the generator in GWT as the hydraulic pump in HWT and modify its inertial in the FAST input file (.fst). Finally, the transmission dynamics of hydraulic system in HWT is modelled as a function in the ServoDyn module and it will be called before the state update of servo system. Finally, we embed the RL-based control policy in the UserVSCont_KP.f90 file.
 
+## Parameters
+### Genereal parameters
+
+| Name                                                         | Sign       | Unit               | Value                |
+| ------------------------------------------------------------ | ---------- | ------------------ | -------------------- |
+| Moments of inertia of the pump                               | $J_p$      | $kg \cdot m^2$     | 3680                 |
+| Moments of inertia of the motor                              | $J_m$      | $kg \cdot m^2$     | 50                   |
+| Pump displacement                                            | $D_p$      | $L/rev$​            | 626                  |
+| Motor displacement                                           | $D_m$      | $L/rev$            | 4.9                  |
+| Viscous damping of pump                                      | $B_p$      | $N\cdot m \cdot s$ | $50\times 10^3$      |
+| Viscous damping of motor                                     | $B_m$      | $N\cdot m \cdot s$ | 2.5                  |
+| Coulomb friction coefficient of the pump                     | $C_{fp}$   | -                  | 0.02                 |
+| Coulomb friction coefficient of the motor                    | $C_{fm}$   | -                  | 0.02                 |
+| Laminar leakage coefficients of the pump                     | $C_{sp}$   | $m^3/s/Pa$         | $7.1\times 10^{-11}$ |
+| Laminar leakage coefficients of the motor                    | $C_{sm}$   | $m^3/s/Pa$         | $7.0\times 10^{-11}$ |
+| The fixed rotational speed (motor and synchronous generator) | $\omega_m$ | $rad/s$            | $2\pi*60(f)$         |
+
+### Parameter of tube line
+
+| Name                            | Sign   | Unit           | Value              |
+| ------------------------------- | ------ | -------------- | ------------------ |
+| High pressure oil line length   | $L$    | $m$            | 100                |
+| Oil pipe line internal diameter | $r$    | $m$            | 0.25               |
+| Density of mineral oil          | $\rho$ | $kg \cdot m^3$ | 917                |
+| Kinematic viscosity of oil      | $\nu$  | $m^2/s$        | $40\times 10^{-6}$ |
+| Effective bulk modulus of oil   | $E$    | $Pa$           | $1.0\times 10^9$   |
+
 ## Pre-modification
 
 1. Change to the file of `/Users/huangyubo/openfast/reg_tests/r-test/glue-codes/fast-farm/TSinflow/NRELOffshrBsline5MW_Onshore_ElastoDyn_8mps.dat`
